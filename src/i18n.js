@@ -102,7 +102,7 @@ var translations = {
     'contact-label': 'Contacto',
     'contact-title': 'Hablemos',
     'cv-download': 'Descargar CV',
-    'contact-note': 'Remoto, por proyecto, por horas semanales o dedicación. Horarios flexibles. Posibilidad de reuniones presenciales. Si tenés un cuello de botella en tu equipo o un proyecto en mente, escribime y vemos cómo te puedo ayudar.',
+    'contact-note': 'Remoto, por proyecto, por horas semanales o dedicación. Horarios flexibles. Posibilidad de reuniones presenciales. Si tenés un desafío puntual en tu equipo o un proyecto en mente, escribime y vemos cómo te puedo ayudar.',
     'footer': 'Moreno, Buenos Aires, Argentina · Gabriel H. Quiroga',
   },
 
@@ -196,7 +196,7 @@ var translations = {
     'contact-label': 'Contact',
     'contact-title': 'Let\'s talk',
     'cv-download': 'Download CV',
-    'contact-note': 'Remote, per project, weekly hours, or dedicated time. Flexible schedule. In-person meetings available. If you have a bottleneck in your team or a project in mind, drop me a line and let\'s see how I can help.',
+    'contact-note': 'Remote, per project, weekly hours, or dedicated time. Flexible schedule. In-person meetings available. If you have a specific challenge in your team or a project in mind, drop me a line and let\'s see how I can help.',
     'footer': 'Moreno, Buenos Aires, Argentina · Gabriel H. Quiroga',
   }
 };
