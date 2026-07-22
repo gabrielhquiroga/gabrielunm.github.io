@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="cv-title">Gabriel H. Quiroga — CV</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text: #1a1a1a;
+      --text-soft: #575c66;
+      --bg: #ffffff;
+      --accent: #4338ca;
+      --line: #e5e7eb;
+      --max-w: 720px;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 11mm 16mm 11mm 16mm;
+        @bottom-center {
+          content: counter(page);
+          font-family: 'Inter', sans-serif;
+          font-size: 8pt;
+          color: #999;
+        }
+      }
+
+      :root { --max-w: 100%; }
+
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        height: 100%;
+        font-size: 9pt;
+        color: #000;
+      }
+
+      .no-print, .print-tip { display: none !important; }
+
+      .container { max-width: 100%; }
+
+      .cv-header {
+        margin-bottom: 8pt;
+        padding-bottom: 4pt;
+        border-bottom-width: 1.5pt;
+      }
+
+      .cv-header h1 { font-size: 15pt; }
+      .cv-header .subtitle { font-size: 9pt; }
+      .cv-header .contact-row { margin-top: 4pt; font-size: 8pt; gap: 4pt 14pt; }
+      .cv-header .contact-row svg { width: 9pt; height: 9pt; }
+
+      .cv-section { margin-bottom: 5pt; }
+      .cv-section h2 { font-size: 8.5pt; margin-bottom: 2pt; letter-spacing: 0.04em; }
+      .cv-profile { font-size: 8pt; line-height: 1.3; }
+      .cv-skill-group { font-size: 8pt; margin-bottom: 0pt; line-height: 1.2; }
+      .cv-exp-item { margin-bottom: 4pt; }
+      .cv-exp-header h3 { font-size: 9pt; }
+      .cv-exp-date { font-size: 7.5pt; }
+      .cv-exp-role { font-size: 8pt; margin-bottom: 0pt; }
+      .cv-exp-company { font-size: 7.5pt; margin-bottom: 0pt; }
+      .cv-exp-desc { font-size: 7.5pt; }
+      .cv-exp-list { font-size: 7.5pt; padding-left: 12pt; line-height: 1.3; }
+      .cv-exp-list li { margin-bottom: 0pt; }
+      .cv-edu-item { font-size: 8pt; margin-bottom: 1pt; }
+      .cv-edu-item .edu-detail { font-size: 7.5pt; }
+      .cv-col-side .cv-exp-list { font-size: 7.5pt; line-height: 1.25; }
+      .cv-edu-avail-row { display: flex; gap: 14pt; }
+      .cv-edu-avail-row .cv-section { flex: 1; min-width: 0; }
+
+      /* --- Two-column print layout --- */
+      .cv-columns {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 16pt;
+      }
+
+      .cv-col-side {
+        flex: 0 0 34%;
+        padding-right: 12pt;
+        border-right: 1pt solid #e5e7eb;
+      }
+
+      .cv-col-main {
+        flex: 1;
+      }
+
+      .cv-print-contact {
+        font-size: 8pt;
+        color: #444;
+        margin-bottom: 8pt;
+        line-height: 1.4;
+      }
+
+      .cv-print-contact div {
+        display: flex;
+        align-items: center;
+        gap: 4pt;
+        margin-bottom: 1pt;
+      }
+
+      .cv-print-contact svg {
+        width: 9pt;
+        height: 9pt;
+        flex-shrink: 0;
+        opacity: 0.7;
+      }
+    }
+
+    /* Two-column gutter — invisible on screen, single column flows naturally */
+    .cv-columns {
+      display: block;
+    }
+
+    .cv-col-main, .cv-col-side {
+      width: 100%;
+    }
+
+    .cv-print-only {
+      display: none;
+    }
+
+    /* Screen-only print tip */
+    @media screen {
+      .print-tip {
+        display: block;
+        background: #fef3c7;
+        border: 1px solid #f59e0b;
+        border-radius: 6px;
+        padding: 8px 14px;
+        margin-top: 12px;
+        font-size: 0.78rem;
+        color: #92400e;
+        line-height: 1.4;
+      }
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      padding: 48px 24px;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* --- Header --- */
+    .cv-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .cv-header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .cv-header .subtitle {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .cv-header .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .cv-header .contact-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .cv-header .contact-row svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* --- Sections --- */
+    .cv-section {
+      margin-bottom: 24px;
+    }
+
+    .cv-section h2 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .cv-profile {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    /* --- Skills --- */
+    .cv-skill-group {
+      margin-bottom: 8px;
+      font-size: 0.84rem;
+    }
+
+    .cv-skill-group strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cv-skill-group span {
+      color: var(--text-soft);
+    }
+
+    /* --- Experience --- */
+    .cv-exp-item {
+      margin-bottom: 16px;
+    }
+
+    .cv-exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .cv-exp-header h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .cv-exp-date {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .cv-exp-role {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .cv-exp-company {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .cv-exp-desc {
+      font-size: 0.84rem;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .cv-exp-list {
+      list-style: disc;
+      padding-left: 18px;
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .cv-exp-list li {
+      margin-bottom: 3px;
+    }
+
+    /* --- Education --- */
+    .cv-edu-item {
+      font-size: 0.86rem;
+      margin-bottom: 6px;
+    }
+
+    .cv-edu-item strong {
+      font-weight: 600;
+    }
+
+    .cv-edu-item .edu-detail {
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    /* --- Education + Availability row --- */
+    .cv-edu-avail-row {
+      display: flex;
+      gap: 24px;
+    }
+
+    .cv-edu-avail-row .cv-section {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* --- Buttons --- */
+    .cv-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .cv-btn:hover { background: #6366f1; }
+    .cv-btn svg { width: 16px; height: 16px; }
+
+    .cv-btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+
+    .cv-btn-outline:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* --- Lang Toggle --- */
+    .lang-toggle {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="lang-toggle no-print" data-i18n="lang-toggle" id="lang-toggle">EN</button>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="cv-header">
+      <h1>Gabriel H. Quiroga</h1>
+      <p class="subtitle" data-i18n="cv-subtitle">Estudiante de Contador Público que escribe código</p>
+      <div class="contact-row">
+        <span><i data-lucide="mail"></i> Gabrielunm@gmail.com</span>
+        <span><i data-lucide="phone"></i> 011 6589 8065</span>
+        <span><i data-lucide="map-pin"></i> Moreno, Buenos Aires, Argentina</span>
+        <span><i data-lucide="linkedin"></i> linkedin.com/in/gabrielunm</span>
+      </div>
+    </header>
+
+    <!-- Two-column layout: screen-first order, print flips via CSS -->
+    <div class="cv-columns">
+
+      <!-- Main column: Profile + Experience (appears first on screen, right side on print) -->
+      <div class="cv-col-main">
+
+        <!-- Profile -->
+        <section class="cv-section">
+          <h2 data-i18n="cv-profile-title">Perfil Profesional</h2>
+          <p class="cv-profile" data-i18n="cv-profile">Estudiante de Contador Público con sólidas habilidades en programación, Inteligencia Artificial y automatización de procesos (RPA). Busco optimizar la eficiencia y precisión de los procesos financieros, administrativos y de auditoría mediante el análisis de datos y el desarrollo de soluciones tecnológicas a medida.</p>
+        </section>
+
+        <!-- Experience -->
+        <section class="cv-section">
+          <h2 data-i18n="cv-exp-title">Experiencia Laboral</h2>
+
+          <div class="cv-exp-item">
+            <div class="cv-exp-header">
+              <h3>Agentia — EX SmartBPO</h3>
+              <span class="cv-exp-date" data-i18n="cv-exp-1-date">Sept. 2024 — Actualidad</span>
+            </div>
+            <p class="cv-exp-role" data-i18n="cv-exp-1-role">Programador y Auditor Externo</p>
+            <div class="cv-exp-desc">
+              <ul class="cv-exp-list">
+                <li data-i18n="cv-exp-1-a">Automatización de procesos contables, extracción de datos (RPA) y clasificación de transacciones mediante ML, IA e Inferencia estadística.</li>
+                <li data-i18n="cv-exp-1-b">Desarrollo e implementación de herramientas con IA para la optimización integral de auditorías externas.</li>
+                <li data-i18n="cv-exp-1-c">Creación de soluciones eficientes que fusionan contabilidad y desarrollo de software para la gestión financiera.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cv-exp-item">
+            <div class="cv-exp-header">
+              <h3 data-i18n="cv-exp-2-company">Municipalidad de Hurlingham — Dir. Gral. de Ingresos Públicos</h3>
+              <span class="cv-exp-date" data-i18n="cv-exp-2-date">Jun. 2022 — Actualidad</span>
+            </div>
+            <p class="cv-exp-role" data-i18n="cv-exp-2-role">Empleado Administrativo</p>
+            <p class="cv-exp-date" data-i18n="cv-exp-2-date2" style="color:var(--text-soft);font-size:0.78rem;margin-bottom:4px">Jun. 2022 — Sept. 2024</p>
+            <div class="cv-exp-desc">
+              <ul class="cv-exp-list">
+                <li data-i18n="cv-exp-2-a">Elaboración de consultas SQL para el análisis de datos tributarios, cuentas corrientes y reportes de cobrabilidad.</li>
+                <li data-i18n="cv-exp-2-b">Gestión ERP RAFAM: parametrización, migración de datos y soporte técnico entre Contaduría, Tesorería y Sistemas.</li>
+                <li data-i18n="cv-exp-2-c">Exportación masiva de comprobantes para entidades de cobro (Red Link, Pago Mis Cuentas, Provincia NET, Débitos BAPRO, ePagos).</li>
+                <li data-i18n="cv-exp-2-d">Liquidación de tasas municipales, procesamiento de retenciones ARBA y gestión diaria de cuentas corrientes tributarias.</li>
+              </ul>
+            </div>
+            <p class="cv-exp-role" data-i18n="cv-exp-2-role2" style="margin-top:8px">Consultor Externo ERP y Datos</p>
+            <p class="cv-exp-date" data-i18n="cv-exp-2-date3" style="color:var(--text-soft);font-size:0.78rem;margin-bottom:4px">Sept. 2024 — Actualidad</p>
+            <p class="cv-exp-desc" data-i18n="cv-exp-2-continuity" style="font-size:0.82rem">Continuidad de las mismas funciones bajo modalidad contractual externa y trabajo remoto.</p>
+          </div>
+
+          <div class="cv-exp-item">
+            <div class="cv-exp-header">
+              <h3 data-i18n="cv-exp-3-company">CETEC-19 (Universidad Nacional de Moreno)</h3>
+              <span class="cv-exp-date" data-i18n="cv-exp-3-date">2020 — 2021</span>
+            </div>
+            <p class="cv-exp-role" data-i18n="cv-exp-3-role">Data Entry &amp; Soporte</p>
+            <p class="cv-exp-desc" data-i18n="cv-exp-3-desc">Registro y análisis de asistencia en Excel para el sistema de seguimiento de contactos estrechos.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Side column: Skills + Education (appears second on screen, left side on print) -->
+      <div class="cv-col-side">
+
+        <!-- Skills + Methodology (2-col) -->
+        <div class="cv-edu-avail-row">
+          <section class="cv-section">
+            <h2 data-i18n="cv-skills-title">Habilidades Técnicas</h2>
+            <div class="cv-skill-group"><strong data-i18n="cv-sk-dev">Desarrollo &amp; Backend:</strong> <span data-i18n="cv-sk-dev-list">Python, JavaScript, SQL, Node.js, React + Vite, Django, FastAPI, Streamlit.</span></div>
+            <div class="cv-skill-group"><strong data-i18n="cv-sk-data">Datos &amp; BI:</strong> <span data-i18n="cv-sk-data-list">Excel Avanzado, Power Query, Pandas, NumPy, Tableau Desktop, Looker Studio, Google Apps Script.</span></div>
+            <div class="cv-skill-group"><strong data-i18n="cv-sk-auto">Automatización &amp; Cloud:</strong> <span data-i18n="cv-sk-auto-list">Playwright, Selenium, Docker, Coolify, Azure (App Service, Static Web Apps, SQL, OCR).</span></div>
+            <div class="cv-skill-group"><strong data-i18n="cv-sk-ai">IA &amp; LLMs:</strong> <span data-i18n="cv-sk-ai-list">Integración de APIs (Gemini, OpenAI), inferencia de modelos locales (Ollama, llama.cpp), metodologías Vibe Coding / SSD.</span></div>
+            <div class="cv-skill-group"><strong data-i18n="cv-sk-db">Bases de Datos:</strong> <span data-i18n="cv-sk-db-list">Oracle SQL, PostgreSQL, Azure SQL Database, SQLite.</span></div>
+          </section>
+
+          <section class="cv-section">
+            <h2 data-i18n="cv-method-title">Metodologías de Trabajo</h2>
+            <div class="cv-skill-group"><strong data-i18n="cv-method-1-label">TDD:</strong> <span data-i18n="cv-method-1">Tests antes del código. Cobertura y regresión automatizadas.</span></div>
+            <div class="cv-skill-group"><strong data-i18n="cv-method-2-label">SDD:</strong> <span data-i18n="cv-method-2">Especificación clara antes de implementar. Sin ambigüedades.</span></div>
+            <div class="cv-skill-group"><strong data-i18n="cv-method-3-label">SOLID &amp; Clean Architecture:</strong> <span data-i18n="cv-method-3">Código extensible. El dominio no depende del framework.</span></div>
+            <div class="cv-skill-group"><strong data-i18n="cv-method-4-label">KISS:</strong> <span data-i18n="cv-method-4">La solución más simple al problema real. Sin sobre-ingeniería.</span></div>
+            <div class="cv-skill-group"><strong data-i18n="cv-method-5-label">Security by Design:</strong> <span data-i18n="cv-method-5">Seguridad desde la arquitectura, no como parche final.</span></div>
+          </section>
+        </div>
+
+        <!-- Education + Availability (2-col) -->
+        <div class="cv-edu-avail-row">
+          <section class="cv-section">
+            <h2 data-i18n="cv-edu-title">Educación</h2>
+            <div class="cv-edu-item">
+              <strong data-i18n="cv-edu-1-degree">Contador Público Nacional</strong>
+              <span class="edu-detail" data-i18n="cv-edu-1-detail"> — Estudiante avanzado. Universidad Nacional de Moreno.</span>
+            </div>
+            <div class="cv-edu-item">
+              <strong data-i18n="cv-edu-2-degree">Bachiller en Economía y Administración</strong>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h2 data-i18n="cv-avail-title">Disponibilidad</h2>
+            <ul class="cv-exp-list" style="margin-bottom:0">
+              <li data-i18n="cv-avail-projects">Proyectos puntuales</li>
+              <li data-i18n="cv-avail-tasks">Trabajo por tareas</li>
+              <li data-i18n="cv-avail-freelance">Freelance</li>
+            </ul>
+            <p class="cv-exp-desc" style="margin-top:6px;color:var(--text-soft)" data-i18n="cv-avail-note">No full-time.</p>
+          </section>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="cv-actions no-print">
+      <a href="index.html" class="cv-btn cv-btn-outline"><i data-lucide="arrow-left"></i> <span data-i18n="cv-back">Volver al portafolio</span></a>
+      <button class="cv-btn" onclick="window.print()"><i data-lucide="printer"></i> <span data-i18n="cv-print">Imprimir / Guardar PDF</span></button>
+    </div>
+
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    function store() {
+      try { return window.localStorage || null; } catch (e) { return null; }
+    }
+
+    var translations = {
+      es: {
+        'lang-toggle': 'EN',
+        'cv-title': 'Gabriel H. Quiroga — CV',
+        'cv-subtitle': 'Estudiante de Contador Público que escribe código',
+        'cv-profile-title': 'Perfil Profesional',
+        'cv-profile': 'Estudiante de Contador Público con sólidas habilidades en programación, Inteligencia Artificial y automatización de procesos (RPA). Busco optimizar la eficiencia y precisión de los procesos financieros, administrativos y de auditoría mediante el análisis de datos y el desarrollo de soluciones tecnológicas a medida.',
+        'cv-skills-title': 'Habilidades Técnicas',
+        'cv-sk-dev': 'Desarrollo & Backend:',
+        'cv-sk-dev-list': 'Python, JavaScript, SQL, Node.js, React + Vite, Django, FastAPI, Streamlit.',
+        'cv-sk-data': 'Datos & BI:',
+        'cv-sk-data-list': 'Excel Avanzado, Power Query, Pandas, NumPy, Tableau Desktop, Looker Studio, Google Apps Script.',
+        'cv-sk-auto': 'Automatización & Cloud:',
+        'cv-sk-auto-list': 'Playwright, Selenium, Docker, Coolify, Azure (App Service, Static Web Apps, SQL, OCR).',
+        'cv-sk-ai': 'IA & LLMs:',
+        'cv-sk-ai-list': 'Integración de APIs (Gemini, OpenAI), inferencia de modelos locales (Ollama, llama.cpp), metodologías Vibe Coding / SSD.',
+        'cv-sk-db': 'Bases de Datos:',
+        'cv-sk-db-list': 'Oracle SQL, PostgreSQL, Azure SQL Database, SQLite.',
+        'cv-exp-title': 'Experiencia Laboral',
+        'cv-exp-1-date': 'Sept. 2024 — Actualidad',
+        'cv-exp-1-role': 'Programador y Auditor Externo',
+        'cv-exp-1-a': 'Automatización de procesos contables, extracción de datos (RPA) y clasificación de transacciones mediante ML, IA e Inferencia estadística.',
+        'cv-exp-1-b': 'Desarrollo e implementación de herramientas con IA para la optimización integral de auditorías externas.',
+        'cv-exp-1-c': 'Creación de soluciones eficientes que fusionan contabilidad y desarrollo de software para la gestión financiera.',
+        'cv-exp-2-company': 'Municipalidad de Hurlingham — Dir. Gral. de Ingresos Públicos',
+        'cv-exp-2-date': 'Jun. 2022 — Actualidad',
+        'cv-exp-2-role': 'Empleado Administrativo',
+        'cv-exp-2-a': 'Elaboración de consultas SQL para el análisis de datos tributarios, cuentas corrientes y reportes de cobrabilidad.',
+        'cv-exp-2-b': 'Gestión ERP RAFAM: parametrización, migración de datos y soporte técnico entre Contaduría, Tesorería y Sistemas.',
+        'cv-exp-2-c': 'Exportación masiva de comprobantes para entidades de cobro (Red Link, Pago Mis Cuentas, Provincia NET, Débitos BAPRO, ePagos).',
+        'cv-exp-2-d': 'Liquidación de tasas municipales, procesamiento de retenciones ARBA y gestión diaria de cuentas corrientes tributarias.',
+        'cv-exp-2-role2': 'Consultor Externo ERP y Datos',
+        'cv-exp-2-date3': 'Sept. 2024 — Actualidad',
+        'cv-exp-2-continuity': 'Continuidad de las mismas funciones bajo modalidad contractual externa y trabajo remoto.',
+        'cv-exp-2-date2': 'Jun. 2022 — Sept. 2024',
+        'cv-exp-3-company': 'CETEC-19 (Universidad Nacional de Moreno)',
+        'cv-exp-3-date': '2020 — 2021',
+        'cv-exp-3-role': 'Data Entry & Soporte',
+        'cv-exp-3-desc': 'Registro y análisis de asistencia en Excel para el sistema de seguimiento de contactos estrechos.',
+        'cv-method-title': 'Metodologías de Trabajo',
+        'cv-method-1-label': 'TDD:',
+        'cv-method-1': 'Tests antes del código. Cobertura y regresión automatizadas.',
+        'cv-method-2-label': 'SDD:',
+        'cv-method-2': 'Especificación clara antes de implementar. Sin ambigüedades.',
+        'cv-method-3-label': 'SOLID &amp; Clean Architecture:',
+        'cv-method-3': 'Código extensible. El dominio no depende del framework.',
+        'cv-method-4-label': 'KISS:',
+        'cv-method-4': 'La solución más simple al problema real. Sin sobre-ingeniería.',
+        'cv-method-5-label': 'Security by Design:',
+        'cv-method-5': 'Seguridad desde la arquitectura, no como parche final.',
+        'cv-edu-title': 'Educación',
+        'cv-edu-1-degree': 'Contador Público Nacional',
+        'cv-edu-1-detail': ' — Estudiante avanzado. Universidad Nacional de Moreno.',
+        'cv-edu-2-degree': 'Bachiller en Economía y Administración',
+        'cv-avail-title': 'Disponibilidad',
+        'cv-avail-projects': 'Proyectos puntuales',
+        'cv-avail-tasks': 'Trabajo por tareas',
+        'cv-avail-freelance': 'Freelance',
+        'cv-avail-note': 'No full-time.',
+        'cv-back': 'Volver al portafolio',
+        'cv-print': 'Imprimir / Guardar PDF',
+      },
+      en: {
+        'lang-toggle': 'ES',
+        'cv-title': 'Gabriel H. Quiroga — Résumé',
+        'cv-subtitle': 'Public Accounting Student who writes code',
+        'cv-profile-title': 'Professional Profile',
+        'cv-profile': 'Public Accounting student with solid skills in programming, Artificial Intelligence, and process automation (RPA). Seeking to optimize the efficiency and accuracy of financial, administrative, and audit processes through data analysis and the development of custom-built technological solutions.',
+        'cv-skills-title': 'Technical Skills',
+        'cv-sk-dev': 'Development & Backend:',
+        'cv-sk-dev-list': 'Python, JavaScript, SQL, Node.js, React + Vite, Django, FastAPI, Streamlit.',
+        'cv-sk-data': 'Data & BI:',
+        'cv-sk-data-list': 'Advanced Excel, Power Query, Pandas, NumPy, Tableau Desktop, Looker Studio, Google Apps Script.',
+        'cv-sk-auto': 'Automation & Cloud:',
+        'cv-sk-auto-list': 'Playwright, Selenium, Docker, Coolify, Azure (App Service, Static Web Apps, SQL, OCR).',
+        'cv-sk-ai': 'AI & LLMs:',
+        'cv-sk-ai-list': 'API integration (Gemini, OpenAI), local model inference (Ollama, llama.cpp), Vibe Coding / SDD methodologies.',
+        'cv-sk-db': 'Databases:',
+        'cv-sk-db-list': 'Oracle SQL, PostgreSQL, Azure SQL Database, SQLite.',
+        'cv-exp-title': 'Work Experience',
+        'cv-exp-1-date': 'Sep. 2024 — Present',
+        'cv-exp-1-role': 'Programmer & External Auditor',
+        'cv-exp-1-a': 'Automation of accounting processes, data extraction (RPA), and transaction classification using ML, AI, and statistical inference.',
+        'cv-exp-1-b': 'Development and implementation of AI-powered tools for comprehensive external audit optimization.',
+        'cv-exp-1-c': 'Creation of efficient solutions merging accounting and software development for financial management.',
+        'cv-exp-2-company': 'Municipality of Hurlingham — Public Revenue Office',
+        'cv-exp-2-date': 'Jun. 2022 — Present',
+        'cv-exp-2-role': 'Administrative Employee',
+        'cv-exp-2-a': 'Development of SQL queries for tax data analysis, current accounts, and collectability reports.',
+        'cv-exp-2-b': 'ERP (RAFAM) management: configuration, data migration, and technical support bridging Accounting, Treasury, and IT.',
+        'cv-exp-2-c': 'Bulk export of payment instruments for collection entities (Red Link, Pago Mis Cuentas, Provincia NET, Débitos BAPRO, ePagos).',
+        'cv-exp-2-d': 'Municipal tax settlement, ARBA withholding processing, and daily tax account management.',
+        'cv-exp-2-role2': 'External ERP & Data Consultant',
+        'cv-exp-2-date3': 'Sep. 2024 — Present',
+        'cv-exp-2-continuity': 'Continuity of the same responsibilities under an external contractual modality and remote work.',
+        'cv-exp-2-date2': 'Jun. 2022 — Sep. 2024',
+        'cv-exp-3-company': 'CETEC-19 (National University of Moreno)',
+        'cv-exp-3-date': '2020 — 2021',
+        'cv-exp-3-role': 'Data Entry & Support',
+        'cv-exp-3-desc': 'Attendance recording and analysis in Excel for the close-contact tracking system.',
+        'cv-method-title': 'Work Methodology',
+        'cv-method-1-label': 'TDD:',
+        'cv-method-1': 'Tests before code. Automated coverage and regression.',
+        'cv-method-2-label': 'SDD:',
+        'cv-method-2': 'Clear specification before implementation. No ambiguity.',
+        'cv-method-3-label': 'SOLID &amp; Clean Architecture:',
+        'cv-method-3': 'Extensible code. Domain logic decoupled from the framework.',
+        'cv-method-4-label': 'KISS:',
+        'cv-method-4': 'The simplest solution to the real problem. No over-engineering.',
+        'cv-method-5-label': 'Security by Design:',
+        'cv-method-5': 'Security from the architecture stage, not as a final patch.',
+        'cv-edu-title': 'Education',
+        'cv-edu-1-degree': 'National Public Accountant',
+        'cv-edu-1-detail': ' — Advanced student. National University of Moreno.',
+        'cv-edu-2-degree': 'High School Degree in Economics & Administration',
+        'cv-avail-title': 'Availability',
+        'cv-avail-projects': 'Project-based work',
+        'cv-avail-tasks': 'Task-based work',
+        'cv-avail-freelance': 'Freelance',
+        'cv-avail-note': 'No full-time.',
+        'cv-back': 'Back to portfolio',
+        'cv-print': 'Print / Save as PDF',
+        'cv-print-tip': '⚠️ In the print dialog, select <strong>Margins: None</strong> and <strong>Scale: 100%</strong>. Paper: A4.',
+      }
+    };
+
+    function applyLang(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          if (!el.querySelector('*')) {
+            el.innerHTML = translations[lang][key];
+          }
+        }
+      });
+      var toggle = document.getElementById('lang-toggle');
+      if (toggle) toggle.textContent = translations[lang]['lang-toggle'];
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+
+      var ls = store();
+      var saved = ls ? ls.getItem('lang') : null;
+      var lang;
+      if (saved) {
+        lang = saved;
+      } else {
+        var browserLang = (navigator.language || '').slice(0, 2);
+        lang = browserLang === 'en' ? 'en' : 'es';
+        if (ls) ls.setItem('lang', lang);
+      }
+
+      applyLang(lang);
+
+      document.getElementById('lang-toggle').addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('lang');
+        var next = current === 'es' ? 'en' : 'es';
+        var ls2 = store();
+        if (ls2) ls2.setItem('lang', next);
+        applyLang(next);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

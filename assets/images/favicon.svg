@@ -1,0 +1,28 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="32"
+  height="32"
+  viewBox="0 0 32 32"
+  fill="none"
+>
+  <!-- Fondo -->
+  <rect width="32" height="32" rx="6" fill="#4338ca" />
+
+  <!-- Ícono bar-chart-3 (adaptado a 32x32, centrado) -->
+  <g
+    stroke="#ffffff"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  >
+    <!-- Ejes: línea de base y L -->
+    <path d="M7 25v-12a2 2 0 0 1 2-2h0" />
+    <path d="M7 25h16" />
+
+    <!-- Barras -->
+    <path d="M24 22v-6" />
+    <path d="M18 22V12" />
+    <path d="M12 22v-3" />
+  </g>
+</svg>
