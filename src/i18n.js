@@ -13,7 +13,7 @@ var translations = {
     'hero-title': 'Estudiante de Contador Público<br>que <em class="typewriter" data-text="escribe código"></em>.',
     'hero-line1': 'Automatizo procesos, analizo datos y construyo soluciones a medida.',
     'hero-line2': 'Solo o con una red de profesionales según el proyecto. Para equipos que necesitan resolver problemas reales — sin vueltas.',
-    'hero-badge': 'Remoto · Por proyecto o dedicación · Sin horario fijo',
+
     // Counters
     'results-label': 'Resultados concretos',
     'count-projects': 'Proyectos entregados',
@@ -114,7 +114,7 @@ var translations = {
     'hero-title': 'Public Accountant student<br>who <em class="typewriter" data-text="writes code"></em>.',
     'hero-line1': 'I automate processes, analyze data, and build custom solutions.',
     'hero-line2': 'Solo or backed by a network of professionals as needed. For teams that need to solve real problems — no fluff.',
-    'hero-badge': 'Remote · Per project or dedicated time · No fixed hours',
+
     'results-label': 'Key results',
     'count-projects': 'Projects delivered',
     'count-bots': 'Automation bots',
