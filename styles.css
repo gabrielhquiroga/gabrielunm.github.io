@@ -561,9 +561,11 @@ h2 {
   opacity: 0.85;
 }
 
-/* Invert dark icons in dark mode (SVGs from simple-icons have hardcoded fill) */
+/* Theme-aware icons: SimpleIcons SVGs have hardcoded brand colors.
+   brightness(0) removes all color first, then invert turns it light.
+   More reliable cross-browser than plain invert(1). */
 [data-theme="dark"] .stack-icon {
-  filter: invert(1) brightness(0.9);
+  filter: brightness(0) saturate(100%) invert(0.92);
 }
 
 /* Lucide icons used inline in stack */
