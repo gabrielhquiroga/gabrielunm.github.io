@@ -220,17 +220,29 @@
     function applyLang(lang) {
       if (typeof translations === 'undefined') return;
       html.setAttribute('lang', lang);
-      // Update all data-i18n elements (only leaf elements with text content)
+      // Update all data-i18n elements
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
         var key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key] !== undefined) {
-          // Only replace innerHTML on elements with no child elements
-          // (skip sections/containers — they use data-i18n for aria-label)
-          if (!el.querySelector('*')) {
-            el.innerHTML = translations[lang][key];
+          var val = translations[lang][key];
+          var hasChildren = el.querySelector('*');
+          if (!hasChildren) {
+            // No child elements: safe innerHTML (handles <br>, &amp;, etc.)
+            el.innerHTML = val;
+          } else {
+            // Has children (hints, icons, etc.): update only text nodes
+            var hasText = false;
+            el.childNodes.forEach(function (node) {
+              if (node.nodeType === 3 && node.textContent.trim()) {
+                node.textContent = val;
+                hasText = true;
+              }
+            });
+            // If no text node was updated (e.g. section containers),
+            // only the aria-label below is applied — correct behavior
           }
           // Always update aria-label
-          el.setAttribute('aria-label', translations[lang][key]);
+          el.setAttribute('aria-label', val);
         }
       });
       // Update tech tooltips
@@ -246,7 +258,7 @@
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
       }
-      // Handle hero-title specially (has child <em> element — skipped by the general loop above)
+      // Handle hero-title specially (has child <em> element — overwrites text-node update from general loop)
       var heroTitle = document.querySelector('[data-i18n="hero-title"]');
       if (heroTitle && translations[lang] && translations[lang]['hero-title']) {
         heroTitle.innerHTML = translations[lang]['hero-title'];
